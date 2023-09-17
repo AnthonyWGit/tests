@@ -1,0 +1,47 @@
+$Globalvar = 3 #This is a global var 
+$Globalvar = $Globalvar+$Globalvar
+puts $Globalvar  #puts equivalent to php echo or C print 
+
+def myFunction() #method declaration because of def 
+    @instancedVar = "is this an instance variable"
+    puts @instancedVar
+end ##in ruby we need to end function definitions 
+
+
+
+def printSomething()
+    @willPrint = "this will print some text"
+    puts @willPrint; 
+end
+
+puts @instancedVar; ## will print nothing because is outside of scope 
+
+myFunction() #prints the string because @instancedVar is in the function wich prints the var 
+puts "\n" #line break
+printSomething()
+puts "\n"
+
+class TestClass #If Class script will break in ruby class declaration is class 
+    def self.methodInTestClass() #if no self can't use static classes REMEMBER in ruby classes are objects too 
+        puts "I am using a method in TestClass" #return value nil (equal to NULL in php)
+    end
+end
+TestClass::methodInTestClass()
+
+class StandardClass #
+    def classicMethod()
+        @j = "This is a simple string" #this acts like a return value 
+    end
+
+    def displayReturnValue(returnVal)
+        @returnVal = Math.sqrt(returnVal).to_i #Convert to integer the square root of intval
+    end
+end
+
+puts 'enter some number'
+returnVal = gets.to_i  #gets take the user input 
+
+instancedObject = StandardClass.new
+puts instancedObject.classicMethod()
+puts instancedObject.displayReturnValue(returnVal)
+puts "End of file";
